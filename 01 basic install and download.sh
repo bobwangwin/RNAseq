@@ -35,7 +35,7 @@ source deactivate
 ################ done for Env ###########
 
 # install software
-conda install -y bwa sra-tools fastqc multiqc trimmomatic cutadapt trim-galore star hisat2 tophat bowtie2 subread htseq bedtools deeptools
+conda install -y bwa sra-tools fastqc multiqc trimmomatic cutadapt trim-galore star hisat2 tophat bowtie2 subread htseq bedtools deeptools salmon
 
 ############### more if require #########
 
