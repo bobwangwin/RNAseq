@@ -57,14 +57,3 @@ wget ftp://ftp.ensembl.org/pub/release-94/gtf/homo_sapiens/Homo_sapiens.GRCh38.9
 wget ftp://ftp.ensembl.org/pub/release-75/gtf/homo_sapiens/Homo_sapiens.GRCh37.75.gtf.gz # hg19
 
 
-############################################
-###########      Second Step     ###########
-##########       qc analysis       #########
-############################################
-
-
-
-
-
-
-
