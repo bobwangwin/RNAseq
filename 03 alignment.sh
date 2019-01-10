@@ -74,9 +74,9 @@ done
 #####@@@@@@@@ ref: http://www.bio-info-trainee.com/2775.html @@@@@@@@#####
 
 
-####################
-####  bowtie2   ####
-####################
+####################   ######################
+####  bowtie2   ####   ######  Tophat   ##### 
+####################   ######################
 
 ### create genome index ###
 
@@ -101,6 +101,11 @@ done
 	# -q input fastq file
 	# -f input fasta file
 #####@@@@@@@@ ref: http://www.chenlianfu.com/?p=178 @@@@@@@@#####	
+
+### tophat [options] <bowtie_index> <reads1[,reads2,...]> [reads1[,reads2,...]] \[quals1,[quals2,...]] [quals1[,quals2,...]]
+tophat2 -p 20 -o /output/direct $bowtie_index $fq1 $fq2
+#####@@@@@@@@ ref: https://www.jianshu.com/p/432959b9c559 @@@@@@@@#####	
+
 
 
 ####################
