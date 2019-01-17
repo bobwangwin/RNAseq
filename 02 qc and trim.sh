@@ -54,13 +54,13 @@ trim_galore -q 25 -phred33 --length 30 -e 0.1 --stringency 3 --paired -o /home/p
 
 ########## if paired seq ###########
 ####### creat a config list ########
-*_1.fastq.gz >1
-*_2.fastq.gz >2
+ls *_1.fastq.gz >1
+ls *_2.fastq.gz >2
 paste 1 2 >config
 
 ###  trim in lines  #####
 #########################
-cat $1 | while read id
+cat config | while read id
 do
 	arr=($id)
 	fq1=${arr[0]}
