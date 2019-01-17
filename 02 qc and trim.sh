@@ -74,6 +74,7 @@ bash ./trim_in_lines.sh config
 ##  Opt: fastqc after trim #### 
 fastqc -t 10 -o /home/project/clean/fastqc/destination /home/project/clean/*  #use 10 threads
                        
-                        
+## use trimmomatic
+trimmomatic PE -threads 20 -phred33 0D-C_1.fq 0D-C_2.fq 0D-Cc_1.fq 0D-Cu_1.fq 0D-Cc_2.fq 0D-Cu_2.fq ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:40
                         
                         
