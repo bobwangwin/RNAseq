@@ -7,8 +7,8 @@
 fastqc -t 10 -o /home/project/fastqc/destination /home/project/rowdata/*.fastq  #use 10 threads
 # ls *gz | xargs fastqc -t 10 -o /home/destination 
 
-muiltqc -o /home/project/mulitqc/destination /home/fastqc/destination
-# mulitqc ./
+multiqc -o /home/project/mulitqc/destination /home/fastqc/destination
+# multiqc ./
 
 #############################################
 
