@@ -77,4 +77,21 @@ fastqc -t 10 -o /home/project/clean/fastqc/destination /home/project/clean/*  #u
 ## use trimmomatic
 trimmomatic PE -threads 20 -phred33 0D-C_1.fq 0D-C_2.fq 0D-Cc_1.fq 0D-Cu_1.fq 0D-Cc_2.fq 0D-Cu_2.fq ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:40
                         
-                        
+PE [-threads <threads 线程数] 
+        [-phred33 | -phred64] 质量体系，默认64，但我们现在一般都是33
+        [-trimlog <logFile>] log文件
+        <input 1> <input 2> 双端测序原始fq文件
+        <paired output 1> <unpaired output 1>  双端1输出文件 、 过滤掉的文件
+        <paired output 2> <unpaired output 2>  双端2同理
+        <step > 
+        <详细讲一下step：>
+        1. ILLUMINACLIP： 根据上面qc部分的测试数据，我们设置TruSeq2-PE.fa:2:40:15
+         TruSeq2-PE.fa是接头序列；
+         2是比对时接头序列时所允许的最大错误数；
+         40是要求PE的两条read同时和adapter序列比对，匹配度加起来超40%，那么就认为这对PE reads含有adapter，并在对应的位置需要进行切除；
+         那么为何不是匹配100%？因为测序时并不是把adapter全测了，只测了一部分】
+         15 指的是只要某条read的某部分与adapter超过了15%的相似度就认为包含，就要去除
+        2. SLIDINGWINDOW： 滑动窗口长度我们设置为4:20，代表窗口长度为4，窗口中的平均质量值至少为20，否则会开始切除
+        3. LEADING，指的是read开头的碱基是否要被切除的质量阈值，这里设为2
+        4. TRAILING，指的是read末尾的碱基是否要被切除的质量阈值，这里设为2
+        5. MINLEN，指的是read被切除后至少需要保留的长度，如果低于该长度，会被丢掉，这里设置40
