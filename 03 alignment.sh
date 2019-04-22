@@ -61,7 +61,7 @@ subread-buildindex -o hg38 /Home/data/reference/subjunc/genome38.fa
 *_2.fastq.gz >2
 paste 1 2 >config
 
-subjunc_index='/Home/data/reference/subjunc'
+subjunc_index='/Home/data/reference/subjunc' # use ../../hg38 as end, should point out the index name "hg38"
 cat $config |while read id
 do
     arr=($id)
