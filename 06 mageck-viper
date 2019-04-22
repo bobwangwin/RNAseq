@@ -1,1 +1,6 @@
-asdfasdf
+source activate mageck
+cd /usr/data/reads
+mageck-vispr init . --reads /usr/data/reads/*
+## edit config.yaml
+snakemake --cores 20
+vispr server results/*.vispr.yaml
