@@ -1,7 +1,26 @@
+########  seq data filteration #####
+###  use seqkit to pull out certain sequence ####
+
+# seqkit installation
+conda install -c bioconda seqkit
+
+# search for the sequence upstream of CGG , which delete the start 5-6 bp
+
+seqkit grep -s -p AAAGGACGAAACACCG 0-C_R1.fastq > 0-C_R1_clean.fastq
+
+# conbain two PE files
+cat 0-C_R2_clean.fastq >> 0-C_R1_clean.fastq
+mv ./*R1_clean.fastq ../finedata/
+
+
+### start mageck viper ####
+
 export PATH=~/miniconda3/bin:$PATH
 source activate mageck
 cd /usr/data/reads
-mageck-vispr init . --reads /usr/data/reads/*
+mageck-vispr init ./ --reads /usr/data/reads/*
 ## edit config.yaml
 snakemake --cores 20
 vispr server results/*.vispr.yaml
+
+### check on 127.0.0.1:5000 ####
